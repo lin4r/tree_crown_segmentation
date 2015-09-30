@@ -1,6 +1,32 @@
 function distanceImg = distanceTransform34(booleanImg)
-%UNTITLED2 Summary of this function goes here
-%   Detailed explanation goes here
+%DISTANCETRANSFORM34 The 3,4 distance transform.
+%   DISTANCEIMG = DISTANCETRANSFORM34(BOOLEANIMG) computes the 3,4 distance
+%   transform of the foreground of logical BOOLEANIMG (i.e. pixels set to
+%   true).
+%
+%   Indices outside the image border are assumed to be background, i.e.
+%   border pixels have background neighbours.
+%
+%   Example
+%       The image:  01000
+%                   11100
+%                   01000
+%                   01110
+%                   01110
+%                   01110
+%
+%       Has the distance transform:
+%                   03000
+%                   34300
+%                   03000
+%                   03330
+%                   03630
+%                   03330
+%
+%   See also:
+%       bwdist
+%
+%Linus Narva (2015) linus.narva@gmail.com
 
 SE8NEIGHS = strel(ones(3));
 
