@@ -1,15 +1,6 @@
-function distanceImg = distanceTransform(booleanImg,w4,wDiag)
+function distanceImg = distanceTransform34(booleanImg)
 %UNTITLED2 Summary of this function goes here
 %   Detailed explanation goes here
-
-if nargin < 2
-   w4 = 3;
-   wDiag = 4;
-end
-
-if nargin == 2
-   error('Cannot specify W4 without also specifying WDIAG.') 
-end
 
 SE8NEIGHS = strel(ones(3));
 
@@ -38,7 +29,7 @@ while ~isFinished
         neigs4 = neighbourhood(logical([0,1,0;1,0,1;0,1,0]));
         neigsDiag = neighbourhood(logical([1,0,1;0,0,0;1,0,1]));
         
-        newDistances(i) = min([neigs4+w4;neigsDiag+wDiag]);
+        newDistances(i) = min([neigs4+3;neigsDiag+4]);
     end
     
     if n == 0

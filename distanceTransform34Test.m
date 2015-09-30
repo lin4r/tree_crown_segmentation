@@ -18,7 +18,7 @@ expectedDistanceImg1 = [ ...
     0,0,3,3,3,0; ...
     0,0,0,0,0,0];
 
-resultDistanceImg1 = distanceTransform(testImg1);
+resultDistanceImg1 = distanceTransform34(testImg1);
 
 if any(expectedDistanceImg1 ~= resultDistanceImg1)
    error('Wrong return distance image') 
