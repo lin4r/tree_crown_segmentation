@@ -4,6 +4,13 @@ function distanceImg = distanceTransform34(booleanImg)
 
 SE8NEIGHS = strel(ones(3));
 
+%Insert a frame around the image.
+bigBooleanImg = false(size(booleanImg)+[2,2]);
+[M,N] = size(bigBooleanImg);
+bigBooleanImg(2:M-1,2:N-1) = booleanImg;
+booleanImg = bigBooleanImg;
+clear bigBooleanImage;
+
 %Initialize distanceImg, with infinity for foreground pixels.
 distanceImg = zeros(size(booleanImg));
 distanceImg(booleanImg) = Inf;
@@ -41,6 +48,9 @@ while ~isFinished
         assignedPixels = or(assignedPixels,frontier);
     end
 end
+
+%Remove border
+distanceImg = distanceImg(2:M-1,2:N-1);
 
 end
 
