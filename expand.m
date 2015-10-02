@@ -20,7 +20,7 @@ anyNewMembers = true;
 while anyNewMembers
     anyNewMembers = false;
 
-    frontier = outerRegionBoundary(regionImg);
+    frontier = outerBoundary(regionImg);
     [xFront,yFront] = find(frontier);
     frontPos = [xFront,yFront];
     
@@ -41,9 +41,9 @@ end
 
 end
 
-function boundary = outerRegionBoundary(region)
+function boundary = outerBoundary(blob)
     neighbourhoodSE = strel(ones(3)); %8 neighbourhood.
-    boundary = xor(region,imdilate(region,neighbourhoodSE));
+    boundary = xor(blob,imdilate(blob,neighbourhoodSE));
 end
 
 %TODO vector operations
